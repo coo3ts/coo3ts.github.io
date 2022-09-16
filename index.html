@@ -83,9 +83,9 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="3TS-Coo"><a href="#3TS-Coo" class="headerlink" title="3TS-Coo"></a>3TS-Coo</h2><p>3TS-Coo is a consistency check tool for transactional databases. Coo checks the consistency of databases in accurate (all types of anomalies), user-friendly (SQL-based test), and cost-effective (one-time checking in a few minutes) ways. You can check out the code and detailed result on <a target="_blank" rel="noopener" href="https://github.com/Tencent/3TS/tree/coo-consistency-check">GitHub</a>{:target&#x3D;”_blank”} branch. Contributions in any kind are welcome.</p>
-<p>The original and executed schedules are available for analysis and debugging. You can click each hyperlink for more detailed test cases and executed results. The <a href="/result/docs/coo_anomaly_cookbook.pdf">formal expressions</a>{:target&#x3D;”_blank”} of test cases are also available. </p>
-<p>The result behaviors are classified into two types, i.e., anomaly (A) and consistency. For anomaly occurrence, data anomalies are not recognized by databases, resulting in data inconsistencies, meaning the executed schedule with no equivalent serializable execution (or a <a href="/result/docs/coo_pop_model.pdf">Partial Order Pair (POP) cycle</a>{:target&#x3D;”_blank”}). While for the consistent performance, databases either pass (P) the anomaly test cases with a serializable result (no POP cycle) or rollback transactions due to rules (R), deadlock detection (D), or timeout (T) reached. The isolation levels are Serializable (SER), Repeatable Read (RR), Read Committed (RC), Read Uncommitted (RU), and Snapshot Isolation (SI).</p>
+        <h2 id="3TS-Coo"><a href="#3TS-Coo" class="headerlink" title="3TS-Coo"></a>3TS-Coo</h2><p>3TS-Coo is a consistency check tool for transactional databases. Coo checks the consistency of databases in accurate (all types of anomalies), user-friendly (SQL-based test), and cost-effective (one-time checking in a few minutes) ways. You can check out the code and detailed result on <a target="_blank" rel="noopener" href="https://github.com/Tencent/3TS/tree/coo-consistency-check">GitHub</a> branch. Contributions in any kind are welcome.</p>
+<p>The original and executed schedules are available for analysis and debugging. You can click each hyperlink for more detailed test cases and executed results. The <a href="/result/docs/coo_anomaly_cookbook.pdf">formal expressions</a> of test cases are also available. </p>
+<p>The result behaviors are classified into two types, i.e., anomaly (A) and consistency. For anomaly occurrence, data anomalies are not recognized by databases, resulting in data inconsistencies, meaning the executed schedule with no equivalent serializable execution (or a <a href="/result/docs/coo_pop_model.pdf">Partial Order Pair (POP) cycle</a>). While for the consistent performance, databases either pass (P) the anomaly test cases with a serializable result (no POP cycle) or rollback transactions due to rules (R), deadlock detection (D), or timeout (T) reached. The isolation levels are Serializable (SER), Repeatable Read (RR), Read Committed (RC), Read Uncommitted (RU), and Snapshot Isolation (SI).</p>
 <h3 id="Interesting-results"><a href="#Interesting-results" class="headerlink" title="Interesting results"></a>Interesting results</h3><p>Please check out the below results of Oracle 21.3.0, TDSQL 2.0.1, and PostgreSQL 12.4. </p>
 <style type="text/css">
 .tg  {border-collapse:collapse;border-spacing:0;}
@@ -508,7 +508,6 @@ td span
 </tbody>
 </table>
 
-
 <h3 id="Tested-results"><a href="#Tested-results" class="headerlink" title="Tested results"></a>Tested results</h3><p>The below is the result of checking MySQL 8.0.20, MyRocks 8.0.26, SQL Server 15.0, TiDB 4.0.5&#x2F;5.4.0, Oracle 12.1.0, OceanBase XE 2.2.50, OceanBase CE 3.1.2, Greenplum 6.20, CockroachDB 19.2.2, and MongoDB 4.4.4.</p>
 <style type="text/css">
 .tg  {border-collapse:collapse;border-spacing:0;}
@@ -538,6 +537,7 @@ td span
   left: 100px;
 }
 </style>
+
 <table class="tg">
 <thead>
   <tr>
@@ -617,7 +617,7 @@ td span
     <td class="tg-0pky"><span><a href="testcase/iat_mda_step_iat.txt" target="_blank">Step IAT</a></span></td>
   </tr>
 
-  <tr>
+<tr>
     <td class="tg-0pky sticky-col first-col" rowspan="4">MySQL <br> v8.0.20 <br> 2022.04.30</td>
     <td class="tg-0pky sticky-col second-col">SER</td>
     <td class="tg-0pky" style="background-color:#D5F5E3"><a href="result/mysql_8.0.20/serializable/rat_sda_dirty_read.txt" target="_blank">P</a></td>
@@ -1623,7 +1623,7 @@ td span
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/16/index/" data-id="cl84563nu00001ou11nz9cp45" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/16/index/" data-id="cl845wyfe0000zsu1ddxd6uqq" data-title="" class="article-share-link">Share</a>
       
       
       
