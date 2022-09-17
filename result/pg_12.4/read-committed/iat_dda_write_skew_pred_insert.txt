@@ -1,0 +1,59 @@
+#### db_type: pg ####
+#### test_type: dda_write_skew_pred_insert ####
+#### isolation: read-committed ####
+
+current_result: The query result of the current SQL statement. Each row of table is separated by a space, and the fields in each row are separated by commas
+expected_result: The expected result is the expected query result for each SQL that conforms to the serializability theory
+ 
+set TXN_ISOLATION = read-committed for each session
+----------iat_dda_write_skew_pred_insert test prepare----------
+Q0-T1 execute sql: 'DROP TABLE IF EXISTS t1;'
+Q0-T1 execute sql: 'CREATE TABLE t1 (k INT PRIMARY KEY, v INT);'
+Q0-T1 execute opt: 'COMMIT;'
+
+----------iat_dda_write_skew_pred_insert test run----------
+Q1-T1 execute opt: 'BEGIN;'
+Q1 finished at: 2022-5-23 11:4:16:187:946
+Q2-T1 execute sql: 'SELECT * FROM t1 WHERE v<2; '
+   current_result: 
+     null 
+  *(1) expected_result: 
+     null 
+   (2) expected_result: 
+     (0,1) 
+
+Q2 finished at: 2022-5-23 11:4:16:189:993
+                                        Q3-T2 execute opt: 'BEGIN;'
+                                        Q3 finished at: 2022-5-23 11:4:16:687:808
+                                        Q4-T2 execute sql: 'SELECT * FROM t1 WHERE v>2;'
+                                           current_result: 
+                                             null 
+                                           (1) expected_result: 
+                                             (1,3) 
+                                          *(2) expected_result: 
+                                             null 
+
+                                        Q4 finished at: 2022-5-23 11:4:16:689:733
+                                        Q5-T2 execute sql: 'INSERT INTO t1 VALUES (0, 1);'
+                                        Q5 finished at: 2022-5-23 11:4:16:691:143
+Q6-T1 execute sql: 'INSERT INTO t1 VALUES (1, 3);'
+Q6 finished at: 2022-5-23 11:4:17:188:754
+Q7-T1 execute opt: 'COMMIT;'
+Q7 finished at: 2022-5-23 11:4:17:190:727
+                                        Q8-T2 execute opt: 'COMMIT;'
+                                        Q8 finished at: 2022-5-23 11:4:17:689:290
+                                                                                Q9-T3 execute sql: 'SELECT * FROM t1 ORDER BY k;'
+                                                                                   current_result: 
+                                                                                     (0,1) (1,3) 
+                                                                                  *(1) expected_result: 
+                                                                                     (0,1) (1,3) 
+                                                                                  *(2) expected_result: 
+                                                                                     (0,1) (1,3) 
+
+                                                                                Q9 finished at: 2022-5-23 11:4:17:691:206
+                                                                                Q10-T3 execute opt: 'COMMIT;'
+                                                                                Q10 finished at: 2022-5-23 11:4:17:692:133
+
+Test Result: Anomaly
+Reason: Data anomaly is not recognized by the database, resulting in data inconsistencies
+
