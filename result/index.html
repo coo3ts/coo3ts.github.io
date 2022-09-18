@@ -27,8 +27,8 @@
 <meta property="og:site_name" content="3TS-Coo | 3TS">
 <meta property="og:description" content="Interesting resultsPlease check out the below results of Oracle 21.3.0, TDSQL 2.0.1, and PostgreSQL 12.4.               No.     1     2     3     4     5     6     7     8     9     10     11     12">
 <meta property="og:locale">
-<meta property="article:published_time" content="2022-09-18T19:52:19.945Z">
-<meta property="article:modified_time" content="2022-09-18T19:52:19.945Z">
+<meta property="article:published_time" content="2022-09-18T20:28:28.298Z">
+<meta property="article:modified_time" content="2022-09-18T20:28:28.298Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://example.com/result/">
@@ -601,13 +601,22 @@
 
 <h3 id="Tested-results"><a href="#Tested-results" class="headerlink" title="Tested results"></a>Tested results</h3><p>The below is the result of checking MySQL 8.0.20, MyRocks 8.0.26, SQL Server 15.0, TiDB 4.0.5&#x2F;5.4.0, Oracle 12.1.0, OceanBase XE 2.2.50, OceanBase CE 3.1.2, Greenplum 6.20, CockroachDB 19.2.2, and MongoDB 4.4.4.</p>
 <style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
+.table-container
+{
+    width : 100%;
+    overflow-y :scroll maxheight: 0px;     
+}
+.tg  {border-collapse:collapse;border-spacing:0; }
 .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
   overflow:hidden;padding:10px 5px;word-break:normal;z-index: 1;}
 .tg th{position:-w-sticky;border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
   font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;z-index: 2;}
 .tg .tg-0pky{text-align:left;vertical-align:middle}
 
+.tbody{overflow-y:scroll;
+       width: calc(100% - 1em);
+       height: 100%; 
+       }
 td span
 {
   -ms-writing-mode: tb-rl;
@@ -643,7 +652,8 @@ td span
 }
 </style>
 
-<table class="tg">
+<div class="table-container">
+<table class="tg" style="overflow-y: auto;overflow-x: hidden; max-height:0px;">
 <thead>
   <tr>
     <th class="tg-0pky sticky-col first-col"></th>
@@ -1721,6 +1731,7 @@ td span
   </tr>
 </tbody>
 </table>
+</div>
 
       </div>
       
