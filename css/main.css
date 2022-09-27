@@ -221,7 +221,7 @@ p {
 }
 a,
 span.exturl {
-  border-bottom: 1px solid #999;
+  border-bottom: 1px solid $link-decoration-color;
   color: var(--link-color);
   outline: 0;
   text-decoration: none;
@@ -1168,7 +1168,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #50ffad;
+  background: #20cb11;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
